@@ -8,6 +8,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Miracle
@@ -27,8 +28,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Cacheable(value = "userData", key = "#result.username")
+    @Cacheable(value = "userData", key = "#username")
     public User getUser(String username) {
-        return userDao.findById(username).get();
+
+        Optional<User> userOptional = userDao.findById(username);
+        if (userOptional.isEmpty()){
+            return null;
+        }
+        return userOptional.get();
     }
 }

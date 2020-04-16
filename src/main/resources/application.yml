@@ -2,9 +2,9 @@ spring:
   application:
     name: study-cache
   datasource:
-    username: root
-    password: diaodiao
-    url: jdbc:mysql://192.168.3.8/stu-cache?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: dior
+    password: 295330167QWE
+    url: jdbc:mysql://192.168.1.105/study-cache?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
@@ -31,8 +31,11 @@ spring:
       ddl-auto: update
   redis:
     database: 0
-    host: 192.168.3.8
-    password: 123456
+    host: 192.168.1.105
+    password: 295330167
     lettuce:
       shutdown-timeout: 100ms
+  cache:
+    redis:
+      cache-null-values: false
 
