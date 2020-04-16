@@ -27,4 +27,25 @@ public class UserController {
     public User getUser(@RequestParam String username){
         return userService.getUser(username);
     }
+
+    @PutMapping("/update")
+    public User updateUser(@RequestBody User user){
+        return userService.updateUser(user);
+    }
+
+    @PostMapping("/save")
+    public User saveUser(@RequestBody User user){
+        return userService.saveUser(user);
+    }
+
+    @DeleteMapping("/delete")
+    public void deleteUser(@RequestParam String username){
+        userService.deleteUser(username);
+    }
+
+    @DeleteMapping("/clearCache")
+    public void clearCache(){
+        userService.clearCache();
+    }
+
 }

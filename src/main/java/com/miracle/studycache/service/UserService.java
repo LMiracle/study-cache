@@ -22,4 +22,29 @@ public interface UserService {
      * @return
      */
     User getUser(String username);
+
+    /**
+     * 修改用户
+     * @param user 用户
+     */
+    User updateUser(User user);
+
+    /**
+     * 保存用户
+     * @param user 用户
+     */
+    User saveUser(User user);
+
+    /**
+     * 删除用户
+     * @param username
+     * @return
+     */
+    void deleteUser(String username);
+
+    /**
+     * 清楚所有用户
+     * @return
+     */
+    void clearCache();
 }
