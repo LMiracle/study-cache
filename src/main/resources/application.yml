@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: study-cache
+  datasource:
+    username: root
+    password: diaodiao
+    url: jdbc:mysql://192.168.3.8/stu-cache?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000
+      validation-query: select 'x'
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat,wall
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+      use-global-data-source-stat: true
+      stat-view-servlet:
+        login-username: miracle
+        login-password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+  redis:
+    database: 0
+    host: 192.168.3.8
+    password: 123456
+    lettuce:
+      shutdown-timeout: 100ms
+
